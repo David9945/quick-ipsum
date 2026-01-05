@@ -1,0 +1,321 @@
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 230px;
+}
+
+span {
+  font-family: "DM Serif Text", sans-serif;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 0;
+}
+
+input {
+  width: 50px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ccd6e2;
+  border: none;
+  text-align: center;
+  margin-left: 10px;
+  font-size: 1.1rem;
+}
+
+input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+input:focus {
+  font-size: 1.1rem;
+  outline: 2px solid black;
+}
+
+.submit {
+  background-color: #0dcd30;
+  height: 40px;
+  width: 110px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  margin-left: 10px;
+  transition: 0.15s;
+  cursor: pointer;
+}
+
+.submit:hover {
+  opacity: 0.8;
+}
+
+.submit:active {
+  opacity: 0.6;
+  transition: 0s;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slogan {
+  margin: 5px 0 30px 0;
+}
+
+.slogan-catcher {
+  font-family: inherit;
+  font-weight: 600;
+  background: #e5fab0;
+  border-radius: 5px;
+  padding: 0 10px 3px 10px;
+  color: black;
+}
+
+.generated-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 700px;
+  margin-top: 60px;
+  position: relative;
+  padding-top: 21px;
+}
+
+.copy {
+  margin: 0;
+  width: 74px;
+  height: 40px;
+  background-color: #0dcd30;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+}
+
+.copy:hover {
+  opacity: 0.8;
+}
+
+.super-copy {
+  background-color: #0dcd30;
+  height: 40px;
+  width: 104px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 550;
+  margin-left: 10px;
+  transition: 0.15s;
+  cursor: pointer;
+}
+
+.super-copy:hover {
+  opacity: 0.8; 
+}
+
+.donate-text {
+  color: #0dcd30;
+  user-select: none;
+  margin: 30px 0 30px 0;
+  text-align: center;
+
+  /* slide-up entrance */
+  opacity: 0;
+  transform: translateY(10px);
+  animation: slideUp 420ms cubic-bezier(.2,.9,.3,1) 140ms both;
+  will-change: transform, opacity;
+}
+
+.donate-text-catcher {
+  font-weight: 700;
+  font-family: inherit;
+  text-decoration: underline;
+  color: #0dcd30;
+
+  /* subtle pop to stand out after parent */
+  display: inline-block;
+  transform: scale(.98) translateY(6px);
+  opacity: 0;
+  animation: popIn 360ms cubic-bezier(.2,.9,.3,1) 300ms both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(6px) scale(.98); }
+  60%  { transform: translateY(-3px) scale(1.02); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.the-nice-one-container {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  width: 350px;
+  height: 65px;
+  border-radius: 5px;
+  padding: 8px 12px;
+  border: 1px solid rgb(187, 187, 187);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 120ms ease;
+
+  /* slide-in from left */
+  opacity: 1;
+  transform: translateX(-12px);
+  animation: slideInLeft 420ms cubic-bezier(.2,.9,.3,1) 100ms both;
+  will-change: transform, opacity;
+}
+
+.the-nice-one-container:hover {
+  box-shadow: 5px 5px 10px  rgba(2,6,23,0.12);
+}
+
+/* tiny progress bar at the bottom that shrinks over the donate timeout (4s) */
+.donate-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: red;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transform-origin: left;
+  transform: scaleX(1);
+  /* animate scaleX from 1 to 0 over 4s to match the donate timeout — avoids visual trail */
+  animation: donateShrink 10s linear forwards;
+  will-change: transform;
+}
+
+@keyframes donateShrink {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.the-nice-one-container p { 
+  margin: 0; 
+  font-weight: 600; 
+  color: #062a2f; 
+  font-size: 0.95rem; 
+}
+
+.the-nice-one-container a {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 9px 12px;
+  margin-left: 2px;
+  border-radius: 6px;
+  /* animated gradient on the anchor (not the container) */
+  background: linear-gradient(90deg, #0dcd30 0%, #00aaff 100%);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 120ms ease;
+  animation: anchorGradient 2s ease-in-out infinite;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  display: inline-block;
+}
+
+.the-nice-one-container a:hover {
+  opacity: 0.8;
+}
+
+@keyframes anchorGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .the-nice-one-container a {
+    animation: none;
+    transition: none;
+  }
+}
+
+.the-nice-one-close {
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  margin: 0;
+  padding: 0;
+  font-weight: 200;
+  color: rgb(107, 0, 0);
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .generated-text {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+  }
+  .para {
+    width: 300px;
+  }
+
+  .slogan {
+    margin-bottom: 60px;
+    font-size: 1.2rem;
+  }
+
+  .main {
+    margin-top: 200px;
+  }
+
+  h1 {
+    line-height: 70px;
+    margin-bottom: 20px;
+  }
+
+  input {
+    height: 44px;
+    width: 50px;
+    font-size: 1.2rem;
+  }
+
+  .input:focus {
+    font-size: 1.2rem;
+  }
+
+  .submit {
+    height: 45px;
+    width: 100px;
+    font-size: 1.1rem;
+  }
+
+  .the-nice-one-container {
+    width: 80%;
+    align-self: center;
+  }
+}

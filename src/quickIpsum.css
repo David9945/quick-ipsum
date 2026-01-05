@@ -315,7 +315,21 @@ form {
   }
 
   .the-nice-one-container {
+    position: absolute;       /* let it flow naturally */
+    top: 10px;                /* reset top */
+    left: auto;               /* reset left */
     width: 80%;
-    align-self: center;
+    height: 100px;
+    display: flex;
+    align-self: center;       /* horizontally centered */
+    margin: 20px auto;        /* vertical spacing */
   }
+
+  .the-nice-one-container a {
+    padding: 25px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
 }

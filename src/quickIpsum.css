@@ -1,23 +1,25 @@
-html {
-  overflow-y: scroll;
-  scrollbar-gutter: stable;
-}
-
 body {
+  overflow-y: scroll;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
   margin: 0;
+  padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.main {
+html {
+  scroll-behavior: smooth;
+}
+
+#main {
   display: flex;
   flex-direction: column;
   text-align: center;
   margin-top: 230px;
+  align-items: center;
 }
 
 span {
@@ -29,8 +31,42 @@ h1 {
   margin: 0;
 }
 
+.dropdown {
+  appearance: none; /* remove native styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: 10px 36px 10px 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #062a2f;
+
+  background-color: #f3f6fa;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  cursor: pointer;
+  outline: none;
+
+  /* subtle depth */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+
+  /* custom arrow */
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23062a2f' d='M1.41 0L6 4.58 10.59 0 12 1.41 6 7.41 0 1.41z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px 8px;
+
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.dropdown:hover {
+  border-color: #0dcd30;
+}
+
 input {
-  width: 50px;
+  width: 90px;
   height: 40px;
   border-radius: 5px;
   background-color: #ccd6e2;
@@ -47,6 +83,10 @@ input::-webkit-inner-spin-button {
 input:focus {
   font-size: 1.1rem;
   outline: 2px solid black;
+}
+
+input::placeholder {
+  font-size: 0.75rem;
 }
 
 .submit {
@@ -78,7 +118,13 @@ form {
 }
 
 .slogan {
-  margin: 5px 0 30px 0;
+  margin: 0 0 40px 0;
+  line-height: 30px;
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
 }
 
 .slogan-catcher {
@@ -88,6 +134,7 @@ form {
   border-radius: 5px;
   padding: 0 10px 3px 10px;
   color: black;
+  margin: 2px 0 0 4px;
 }
 
 .generated-text {
@@ -172,7 +219,7 @@ form {
 
 .the-nice-one-container {
   position: absolute;
-  top: 20px;
+  top: 120px;
   left: 15px;
   width: 350px;
   height: 65px;
@@ -231,36 +278,18 @@ form {
 
 .the-nice-one-container a {
   color: white;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
-  padding: 9px 12px;
-  margin-left: 2px;
-  border-radius: 6px;
-  /* animated gradient on the anchor (not the container) */
-  background: linear-gradient(90deg, #0dcd30 0%, #00aaff 100%);
-  background-size: 200% 100%;
-  background-position: 0% 50%;
-  transition: transform 150ms ease, box-shadow 150ms ease, opacity 120ms ease;
-  animation: anchorGradient 2s ease-in-out infinite;
+  background-color: #0dcd30;
+  padding: 10px 8px;
+  margin-left: 5px;
+  border-radius: 5px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   display: inline-block;
 }
 
 .the-nice-one-container a:hover {
   opacity: 0.8;
-}
-
-@keyframes anchorGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .the-nice-one-container a {
-    animation: none;
-    transition: none;
-  }
 }
 
 .the-nice-one-close {
@@ -290,7 +319,7 @@ form {
   }
 
   .main {
-    margin-top: 200px;
+    margin-top: 100px;
   }
 
   h1 {
@@ -332,4 +361,19 @@ form {
     justify-content: center;
   }
 
+}
+
+@media (max-width: 600px) {
+  .slogan {
+    width: 65%;
+    font-size: 1rem;
+  }
+
+  .span-for-catcher {
+    font-size: 0.8rem;
+  }
+
+  input {
+    width: 80px;
+  }
 }

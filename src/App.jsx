@@ -1,7 +1,5 @@
 import Main from "./quickIpsum"
 
-
-
 function App() {
   
 

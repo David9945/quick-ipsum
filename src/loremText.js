@@ -1,4 +1,4 @@
-const data = [
+export const dataPara = [
     {
         id: crypto.randomUUID(),
         text: 'Next level tbh everyday carry, blog copper mug forage kitsch roof party pickled hammock kale chips tofu. Etsy shoreditch 8-bit microdosing, XOXO viral butcher banh mi humblebrag listicle woke bicycle rights brunch before they sold out ramps. Twee shabby chic taiyaki flannel, enamel pin venmo vape four loko. Hexagon kale chips typewriter kitsch 8-bit organic plaid small batch keffiyeh ethical banh mi narwhal echo park cronut.'
@@ -395,7 +395,6 @@ const data = [
         id: crypto.randomUUID(),
         text: 'Narwhal jawn deserunt semiotics mlkshk drinking vinegar. Gorpcore before they sold out cloud bread poke tempor. Pop-up ipsum fingerstache kickstarter velit coloring book tote bag tilde pabst church-key DSA polaroid waistcoat pitchfork chicharrones. Microdosing migas DSA, est church-key semiotics flexitarian typewriter unicorn velit laboris cronut. Gentrify umami keffiyeh tempor, sunt eiusmod veniam raw denim cloud bread readymade.'
     },
-    
 ]
 
-export default data
+export const dataWords = dataPara.flatMap(item => item.text.split(' '));

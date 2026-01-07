@@ -33,10 +33,10 @@ function Navbar() {
                 </div>
 
                 <div className={`extra-mobile ${toggleNav ? 'open' : ''}`}>
-                    <a href="#lorem-ipsum">Lorem ipsum</a>
-                    <a href="#about">About</a>
-                    <a href="#report-a-bug">Report a bug</a>
-                    <a href="buymeacoffee.com/davidmacaskill" target='_blank'>Support &#9749;</a>
+                    <a href="#lorem-ipsum" onClick={() => {setToggleNav(false)}}>Lorem ipsum</a>
+                    <a href="#about" onClick={() => {setToggleNav(false)}}>About</a>
+                    <a href="#report-a-bug" onClick={() => {setToggleNav(false)}}>Report a bug</a>
+                    <a href="buymeacoffee.com/davidmacaskill" target='_blank' onClick={() => {setToggleNav(false)}}>Support &#9749;</a>
                 </div>
             </div>
         </nav>

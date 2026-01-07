@@ -20,6 +20,7 @@ html {
   text-align: center;
   margin-top: 230px;
   align-items: center;
+  scroll-margin-top: 230px;
 }
 
 span {

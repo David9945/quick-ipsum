@@ -36,7 +36,7 @@ function Navbar() {
                     <a href="#lorem-ipsum" onClick={() => {setToggleNav(false)}}>Lorem ipsum</a>
                     <a href="#about" onClick={() => {setToggleNav(false)}}>About</a>
                     <a href="#report-a-bug" onClick={() => {setToggleNav(false)}}>Report a bug</a>
-                    <a href="buymeacoffee.com/davidmacaskill" target='_blank' onClick={() => {setToggleNav(false)}}>Support &#9749;</a>
+                    <a href="https://buymeacoffee.com/davidmacaskill" target='_blank' onClick={() => {setToggleNav(false)}}>Support &#9749;</a>
                 </div>
             </div>
         </nav>
